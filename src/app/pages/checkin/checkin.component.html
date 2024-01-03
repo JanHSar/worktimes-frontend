@@ -1,0 +1,11 @@
+<div class="container text-center">
+  <div class="row justify-content-md-center">
+    <h3>Home office check in</h3>
+    <div class="col col-md-2" >
+      <i class="bi bi-play-circle start-stop-icon" (click)="startTime()" [ngClass]="active ? 'green' : 'grey'"></i>
+    </div>
+    <div class="col col-md-2" [ngClass]="active ? 'grey' : 'red'">
+      <i class="bi bi-stop-circle start-stop-icon" (click)="stopTime()"></i>
+    </div>
+  </div>
+</div>
