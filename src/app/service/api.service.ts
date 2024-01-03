@@ -46,7 +46,7 @@ export class ApiService {
    * @param options 
    * @returns API response
    */
-    async put(path: string, data: object, options: any = null): Promise<any> {
+    async put(path: string, data: object, options: any = {}): Promise<any> {
       return await firstValueFrom(
         this.http.put(this.apiUrl + path, data, options)
       );
@@ -59,7 +59,7 @@ export class ApiService {
    * @param options 
    * @returns API response
    */
-  async patch(path: string, data: object, options: any = null): Promise<any> {
+  async patch(path: string, data: object, options: any = {}): Promise<any> {
     return await firstValueFrom(
       this.http.patch(this.apiUrl + path, data, options)
     );
@@ -72,7 +72,7 @@ export class ApiService {
    * @param options 
    * @returns API response
    */
-    async delete(path: string, options: any = null): Promise<any> {
+    async delete(path: string, options: any = {}): Promise<any> {
       return await firstValueFrom(
         this.http.delete(this.apiUrl + path, options)
       );
