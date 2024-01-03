@@ -49,7 +49,8 @@ export class CheckinComponent {
    */
   async startTime() {
     if (!this.active) {
-      await this.workTimeStervice.start();
+      const workTime = await this.workTimeStervice.start();
+      this.activeWorkTime = workTime;
       this.active = true;
     }
   }
@@ -60,6 +61,7 @@ export class CheckinComponent {
   async stopTime() {
     if (this.active) {
       await this.workTimeStervice.stop(this.activeWorkTime!.id);
+      this.activeWorkTime = undefined;
       this.active = false;
     }
   }

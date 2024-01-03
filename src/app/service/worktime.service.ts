@@ -32,7 +32,18 @@ export class WorktimeService {
    * Stop last WorkTime entry
    */
     async stop(workTimeId: number) {
-      const res = await this.api.patch('/workTimes/stop', {workTimeId: workTimeId});
-      return res;
+      const workTime = await this.api.patch('/workTimes/stop', {workTimeId: workTimeId});
+      return workTime;
+    }
+
+    /**
+     * Get work times vor given day
+     * @param year 
+     * @param month 
+     * @param day 
+     */
+    async getTimesForDay(year: number, month: number, day: number): Promise<[]> {
+      const workTimes = await this.api.get('/workTimes', {year, month, day});
+      return workTimes;
     }
 }

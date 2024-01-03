@@ -20,9 +20,9 @@ export class ApiService {
    * @param options 
    * @returns API response
    */
-  async get(path: string, options: any = null): Promise<any> {
+  async get(path: string, params: {} = {}): Promise<any> {
     return await firstValueFrom(
-      this.http.get(this.apiUrl + path, options)
+      this.http.get(this.apiUrl + path, {params: params})
       );
   }
 

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row text-center">
+    <a href="/checkin">Check in</a>
+  </div>
+  <div class="row text-center">
+    <h3>Choose date</h3>
+    <div>
+      <ngb-datepicker #dp [(ngModel)]="selectedDate" (ngModelChange)="updateDetail($event)" (navigate)="date = $event.next"></ngb-datepicker>
+    </div>
+  </div>
+  <div class="row text-center">
+    <span *ngIf="!selectedDate">Choose date first</span>
+    <div class="row">{{selectedDate?.day}}.{{ selectedDate?.month }}.{{ selectedDate?.year }}</div>
+    <div class="row" *ngFor="let workTime of workTimes">{{workTime['start'] | date:'HH:mm'}} - {{workTime['end'] | date:'HH:mm'}} Uhr </div>
+  </div>
+</div>
