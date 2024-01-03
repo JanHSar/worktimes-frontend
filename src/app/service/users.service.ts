@@ -26,4 +26,22 @@ export class UsersService {
 
     return res;
   }
+
+  /**
+   * Get my user
+   * @returns User me
+   */
+  async me() {
+    const res = await this.api.get('/users/me', {});
+    return res;
+  }
+
+    /**
+   * Is authenticated
+   * @returns User me
+   */
+    async authenticated(): Promise<boolean> {
+      const res = await this.me();
+      return res.xApiKey ? true : false
+    }
 }

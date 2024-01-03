@@ -9,7 +9,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 export const xApiKeyInterceptor: HttpInterceptorFn = (req, next) => {
   const xApiKey = localStorage.getItem('xApiKey');
   const reqXApiKey = req.clone({
-    headers: req.headers.set('x-api-key', xApiKey ?? '')
+    headers: req.headers.append('x-api-key', xApiKey ?? '')
   });
   return next(reqXApiKey);
 };
