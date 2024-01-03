@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../../service/users.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,17 @@ export class LoginComponent {
   password: string = '';
 
   constructor(
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router,
   ) {}
 
   async logIn() {
     if (this.userName !== '' && this.password !== '') {
       const user = await this.usersService.logIn(this.userName, this.password);
-      console.log(user)
+
+      if(user.xApiKey) {
+        this.router.navigateByUrl('/checkin');
+      }
     }
   }
 }

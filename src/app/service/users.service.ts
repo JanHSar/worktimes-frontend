@@ -23,7 +23,7 @@ export class UsersService {
     if(res.xApiKey !== '') {
       localStorage.setItem('xApiKey', res.xApiKey);
     }
-
+    
     return res;
   }
 
